@@ -120,11 +120,9 @@ while running:
                 if len(selected_circles) < 2:
                     pass
                 else:
-                    #i = 0
-                    #while i < 2:
-                    #    circles[selected_circles[0]]["selected"] = 0
-                    #    selected_circles.pop(0)
-                    #    i += 1
                     graph = create_graph(edges)
-                    graph.print_vertices()
-                    path = dijkstras_algorithm(graph, selected_circles[0], selected_circles[1])
+                    ## TODO catch error if graph is disjointed
+                    if bool(graph.graph) == False:
+                        print("Graph is disjoined")
+                    else:
+                        path = dijkstras_algorithm(graph, selected_circles[0], selected_circles[1])
