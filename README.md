@@ -7,15 +7,15 @@ Items that can be defined:
 - Beginning/end vertices pair
 
 The controls are:
-* Left click
+1.- Left click
 - Defines a new vertex
 - Connects 2 vertices. First a vertex is selected and turned green, then an edge is created after clicking on another vertex
 
-* Right click
+2.- Right click
 Sets beginning or end vertex
   
-* Return:
+3.- Return:
 Runs Dijkstra's algorithm on current graph with selected beginning/end vertices pair
 
-* R:
+4.- R:
 Clears windows and all defined values
