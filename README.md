@@ -13,10 +13,13 @@ The controls are:
 - Connects 2 vertices. First a vertex is selected and turned green, then an edge is created after clicking on another vertex
 
 2.- Right click
+
 Sets beginning or end vertex
   
 3.- Return:
+
 Runs Dijkstra's algorithm on current graph with selected beginning/end vertices pair
 
 4.- R:
+
 Clears windows and all defined values
