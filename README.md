@@ -7,6 +7,7 @@ Items that can be defined:
 - Beginning/end vertices pair
 
 The controls are:
+
 1.- Left click
 - Defines a new vertex
 - Connects 2 vertices. First a vertex is selected and turned green, then an edge is created after clicking on another vertex
