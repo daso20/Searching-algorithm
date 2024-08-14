@@ -16,6 +16,7 @@ edges = []
 selected_circles = []
 edge_of_circles = []
 path = []
+dijkstras_algorithm_executed = 0
 
 def check_collition(x, y):
     if len(circles) == 0:
@@ -67,7 +68,6 @@ while running:
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
-            print(f'Mouse clicked at {x}, {y}')
             if pygame.mouse.get_pressed()[0]: # Left click
                 check_collition_result, check_collition_index = check_collition(x, y)
                 if check_collition_result == 1:
@@ -76,32 +76,30 @@ while running:
                     else:
                         circles[check_collition_index]["circle_for_edge"] = 1
                         edge_of_circles.append(check_collition_index)
-                        print(edge_of_circles)
                 elif check_collition_result == 2:
-                    print("Collision dectected")
+                    pass
                 else:
                     circles.append({"selected" : 0, "coordinates":(x, y), "circle_for_edge": 0})
-                    print('Left mouse button pressed!')
                 
             elif pygame.mouse.get_pressed()[2]: # Right click
                 check_collition_result, check_collition_index = check_collition(x, y)
                 if check_collition_result == 1:
                     if check_collition_index in selected_circles:
                         continue
-                    else: 
+                    else:
+                        path = []
                         circles[check_collition_index]["selected"] = 1
                         selected_circles.append(check_collition_index)
                         if len(selected_circles) > 2:
                             circles[selected_circles[0]]["selected"] = 0
                             selected_circles.pop(0)
-                        print("Inside circle")
-                        #print(f'Selected circles: {selected_circles}')
                         pass
 
-                print('Right mouse button pressed!')
-
             if len(edge_of_circles) == 2:
-                edges.append([circles[edge_of_circles[0]]["coordinates"],circles[edge_of_circles[1]]["coordinates"], (edge_of_circles[0], edge_of_circles[1])])
+                edges_coordinates = [edge[2] for edge in edges]
+                if (edge_of_circles[0],edge_of_circles[1]) not in edges_coordinates and (edge_of_circles[1],edge_of_circles[0]) not in edges_coordinates:
+                    edges.append([circles[edge_of_circles[0]]["coordinates"],circles[edge_of_circles[1]]["coordinates"], (edge_of_circles[0], edge_of_circles[1])])
+                    path = []
 
                 i = 0
                 while i < 2:
@@ -117,7 +115,6 @@ while running:
                 selected_circles = []
                 edge_of_circles = []
                 path = []
-                print("r")
 
             if event.key == pygame.K_RETURN:
                 if len(selected_circles) < 2:
@@ -131,4 +128,3 @@ while running:
                     graph = create_graph(edges)
                     graph.print_vertices()
                     path = dijkstras_algorithm(graph, selected_circles[0], selected_circles[1])
-                    print(path)
