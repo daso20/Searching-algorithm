@@ -16,10 +16,10 @@ The controls are:
 
 Sets beginning or end vertex
   
-3.- Return:
+3.- Return
 
 Runs Dijkstra's algorithm on current graph with selected beginning/end vertices pair
 
-4.- R:
+4.- R
 
 Clears windows and all defined values
