@@ -121,8 +121,9 @@ while running:
                     pass
                 else:
                     graph = create_graph(edges)
-                    ## TODO catch error if graph is disjointed
-                    if bool(graph.graph) == False:
-                        print("Graph is disjoined")
+                    if selected_circles[0] not in graph.graph.keys() or selected_circles[1] not in graph.graph.keys():
+                        print("Graph is disjointed")
                     else:
                         path = dijkstras_algorithm(graph, selected_circles[0], selected_circles[1])
+                        if path == None:
+                            path = []
