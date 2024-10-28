@@ -1,4 +1,4 @@
-## Searching algorithm with GUI based on Dijkstra's algorithm. 
+# Searching algorithm with GUI based on Dijkstra's algorithm. 
 Main functionality is to find the most optional path in a graph between 2 selected vertices. 
 
 Items that can be defined:
@@ -6,7 +6,7 @@ Items that can be defined:
 - Edges between vertices
 - Beginning/end vertices pair
 
-# Controls
+## Controls
 
 1.- Left click
 - Defines a new vertex
